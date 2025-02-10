@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<head>
+  <title>Activity since 2025-02-03</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .old > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  </style>
+<body>
+
+<h1>Activity since 2025-02-03</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/esp-rs/esp-idf-svc">esp-rs/esp-idf-svc</a></span>
+      repo issues and pull requests
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add example of OTA update using http client</b> #559</a>
+              [EmrysMyrddin]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1938713990" title="02-03 03:19">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Vollbrecht</b>: We already provide a helper macro that embeds cargo version and build information into a read...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1938996614" title="02-03 08:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Ooooh very cool ! I&#39;m fixing this :-)</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2629818359" title="02-03 03:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Vollbrecht</b>: Thanks for the effort. A little more documentation can always help!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#pullrequestreview-2589141798" title="02-03 07:55">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>ivmarkov</b>: Thanks, the example looks quite good already! I have two suggestions - one to more heavily...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1938925502" title="02-03 07:55">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>ivmarkov</b>: Perhaps document that this functionality needs CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y which is...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939040931" title="02-03 09:18">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: How this have to be set ? Is there a file somewhere for the sep-idf related configuration?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939087107" title="02-03 09:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: sdkconfig.defaults in the root of your binary crate. You should absolutely have this file there...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939126631" title="02-03 10:16">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: From what I&#39;ve understood of this section:...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939147822" title="02-03 10:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: Sure, but my point was a different one: that (a) you should only mark the image as valid if you...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939265839" title="02-03 12:03">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Ok, I&#39;ve just checked, and the default bootloader have a rollback mechanism. If a slot is...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1938926256" title="02-03 07:55">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>ivmarkov</b>: This has to be done post app-reboot, once the newly-updated partition was booted. Perhaps document this?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939025599" title="02-03 09:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: In the body of the function, the check happens only if the currently running slot is not yet...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939091600" title="02-03 09:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: I think you are missing the point as to what the check is supposed to do.
+Read this:...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939102806" title="02-03 09:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: The check_for_updates function is rebooting the board once the update is done :-)
+So if the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939116462" title="02-03 10:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: The check_for_updates function is rebooting the board once the update is done :-)
+
+Ah yes, I&#39;ve...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939375777" title="02-03 13:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Let&#39;s add information about that too :-)
+I didn&#39;t noticed, since my app is already too large to...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1938926908" title="02-03 07:55">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>ivmarkov</b>: Would be good to demo the usage of EspFirmwareInfoLoad here.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939039674" title="02-03 09:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Not sure what you mean here ? You want to demo the usage to do what ?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939097207" title="02-03 09:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: EspFirmwareInfoLoad allows you - while loading the new firmware - to extract from it on-the-fly...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939102153" title="02-03 09:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: ... in a comment or so.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939145425" title="02-03 10:28">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Oh ok, I will try to see how it works in my project to add it to the example.
+Even if the server...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939159962" title="02-03 10:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: I&#39;m not sure to understand how to extract this EspFirmwareInfoLoad from my update partition. Or...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939308674" title="02-03 12:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Ok, I get it. Sorry to bother you again, but how do you create a reference for a FirmwareInfo ?...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#discussion_r1939341185" title="02-03 13:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: Yes, manually with some default values. For now.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630407940" title="02-03 09:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: By browsing the ESP-IDF documentation, it appears the even have a native function that is...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630473225" title="02-03 09:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: By browsing the ESP-IDF documentation, it appears the even have a native function that is...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630483570" title="02-03 10:02">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: In other words, the API you want to expose is too opinionated. I don&#39;t mind you working on...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630550615" title="02-03 10:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: I need some help for using esp_app_desc.version :-) From what I understood, it a CStr, but I&#39;m a...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630575210" title="02-03 10:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: I need some help for using esp_app_desc.version :-) From what I understood, it a CStr, but I&#39;m a...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630641840" title="02-03 11:10">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: I must misunderstand what esp_app_desc! is doing ^^&#39;
+It&#39;s not supposed to allow me to get the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630705872" title="02-03 11:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: I must misunderstand what esp_app_desc! is doing ^^&#39; It&#39;s not supposed to allow me to get the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630746280" title="02-03 11:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Hooo that&#39;s makes sense ! That&#39;s why the version was not correct in the running slot when I...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630770114" title="02-03 12:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: BTW, when  i add esp_app_desc!, it generate tons of warning about unexpected cfg condition name....</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2630798995" title="02-03 12:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: BTW, when i add esp_app_desc!, it generate tons of warning about unexpected cfg condition name....</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2631195059" title="02-03 14:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: Ok, I think I&#39;ve resolved all your comments ?
+BTW, I&#39;m not sure why the --bootloader option is...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2634837350" title="02-04 19:11">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: Sorry for the delay, could not get to it today. Will take a look tmr.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/pull/559#issuecomment-2635263881" title="02-04 23:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>EmrysMyrddin</b>: No problem, there is no rush :-) It&#39;s just documentation !</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-idf-svc/issues/557"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Modifying ethernet netif mtu?</b> #557</a>
+              [indexds]
+
+              
+              </p><p>Hi,
+I&#39;m looking to make my ethernet netif&#39;s mtu match that of wireguard at 1420 to prevent fragmentation, but the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/issues/557#issuecomment-2637614717" title="02-05 17:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>indexds</b>: So we might be getting this soon. However this would be merged into master for esp-idf right? So...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/issues/557#issuecomment-2637629100" title="02-05 17:53">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: So we might be getting this soon. However this would be merged into master for esp-idf...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-idf-svc/issues/557#issuecomment-2637650131" title="02-05 18:01">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>indexds</b>: Alright, well we shall see how it goes.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2025-02-10 01:43 by
+  <a href="https://pypi.org/project/dinghy/0.13.1">
+    dinghy
+    <span class="dinghy_version">0.13.1</span></a>.
+</p>

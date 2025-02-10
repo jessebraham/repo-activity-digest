@@ -1,0 +1,3290 @@
+<!DOCTYPE html>
+<head>
+  <title>Activity since 2025-02-03</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .old > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  </style>
+<body>
+
+<h1>Activity since 2025-02-03</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/esp-rs/esp-hal">esp-rs/esp-hal</a></span>
+      repo issues and pull requests
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3081"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Allow `set_power_saving` even for coex</b> #3081</a>
+              [bjoernQ]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3081#pullrequestreview-2589191094" title="02-03 08:19">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b>: Agree with @bugadani regarding the migration guide, but otherwise LGTM</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3081#pullrequestreview-2589276739" title="02-03 08:58">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3082"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Enable async ADC for C2 and H2</b> #3082</a>
+              [bugadani]
+
+              
+              </p><p>They just work. Verified by running the example, and tying GPIO4 to GND (~2000 count) and 3V3 (4095 count). Also ran...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#discussion_r1938940709" title="02-03 08:04">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: maybe I&#39;m missing something here but why only for ESP32-C3?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#discussion_r1938945451" title="02-03 08:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: I think that&#39;s the only chip with 2 ADCs, for the rest we don&#39;t need to count to 1</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#discussion_r1938960280" title="02-03 08:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: the only RISCV - true
+Mind adding a comment since it&#39;s (at least to me) not obvious</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#discussion_r1938980529" title="02-03 08:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: I think I&#39;d rather add an adc1 metadata symbol instead</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#discussion_r1938984817" title="02-03 08:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: that&#39;s for sure much better 👍</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#pullrequestreview-2589189832" title="02-03 08:18">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#discussion_r1938959122" title="02-03 08:20">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: I guess this should be Cpu::all</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3082#pullrequestreview-2589268552" title="02-03 08:55">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3078"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Does esp-hal-procmacros need to be stable also?</b> #3078</a>
+              [MabezDev]
+
+              <span class="label" style="--label-r:242;--label-g:166;--label-b:2;--label-h:41;--label-s:98;--label-l:47;">RFC</span>
+                <span class="label" style="--label-r:165;--label-g:108;--label-b:149;--label-h:316;--label-s:24;--label-l:53;">package:esp-hal-procmacros</span>
+                <span class="label" style="--label-r:83;--label-g:25;--label-b:231;--label-h:256;--label-s:81;--label-l:50;">1.0-blocker</span>
+                
+              </p><p>As part of not having dependencies &lt;1.0 in the public API.
+I assumed this was a yes and was going to open a separate...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3078#issuecomment-2630408398" title="02-03 09:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Yes looks like this for me</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3078#issuecomment-2630520030" title="02-03 10:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: We probably want to make it clear that we don&#39;t intend to stabilize procmacros and directly...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3087"><span class="octicons" title="draft closed pull request, newly created, newly closed"><span class="octicon star"></span><span class="octicon x"></span><span class="octicon draft closed pull"></span></span><b>ci: Test Xtensa action</b> #3087</a>
+              [SergioGasquez]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3089"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>DMA channel priority configuration</b> #3089</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:dma</span>
+                
+              </p><p>Somewhere in the refactors this has gone away - #3088 removed the last vestiges. We should figure out how we can...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3085"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>DmaChannel::set_priority doesn&#39;t work anymore</b> #3085</a>
+              [Dominaezzz]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:dma</span>
+                
+              </p><p>Bug description
+Since #2545 landed, it&#39;s no longer possible to set the priority on DMA channel, due to the lazy init...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3088"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Remove `DmaChannel::set_priority`</b> #3088</a>
+              [bugadani]
+
+              
+              </p><p>Closes #3085
+The intended way is to configure either the dma-enabled peripheral, or the transfer itself to run at a...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3088#pullrequestreview-2589389661" title="02-03 09:43">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3088#issuecomment-2630555608" title="02-03 10:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: The intended way is to configure either the dma-enabled peripheral, or the transfer itself to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3088#pullrequestreview-2589512334" title="02-03 10:33">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Definitely fixes the linked bug</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3088#pullrequestreview-2589522490" title="02-03 10:37">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: As @bjoernQ mentioned, please open an issue about dma prio. LGTM.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3088#issuecomment-2630587322" title="02-03 10:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: #3089</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3072"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Use self-hosted mac mini for the small, auxiliary tasks</b> #3072</a>
+              [bugadani]
+
+              
+              </p><p>Total CPU time goes down by 13 or so minutes (https://github.com/esp-rs/esp-hal/actions/runs/13074331617/usage,...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#pullrequestreview-2589555008" title="02-03 10:53">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>SergioGasquez</b>: LGTM, but left 2 questions</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#discussion_r1939178802" title="02-03 10:53">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: It was not worth to use the macos self hosted runner here?
+Also, we can already use...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#discussion_r1939184223" title="02-03 10:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: We can certainly try an ARM runner, but the difference will be seconds. This workflow isn&#39;t a...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#discussion_r1939213165" title="02-03 11:19">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Well that didn&#39;t work out :) I can try fiddling with non-cross builds but maybe not in this one.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#discussion_r1939225514" title="02-03 11:29">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>SergioGasquez</b>: Thanks for the tests!</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#pullrequestreview-2589663462" title="02-03 11:46">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3072#pullrequestreview-2589663914" title="02-03 11:46">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>JurajSadel</b>: Thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3080"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Create an issue when nightly-ci fails</b> #3080</a>
+              [JurajSadel]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>closes #3068
+I&#39;ve tested this with another repo, works fine there, hopefully I haven&#39;t missed anything. I&#39;m...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3080#issuecomment-2630196973" title="02-03 07:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I imagined the created issue could contain a bit more useful information about the problems or...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3080#issuecomment-2630650630" title="02-03 11:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>JurajSadel</b>: I&#39;ve changed the approach a bit here - instead of an action (I couldn&#39;t linked the failed job in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3080#issuecomment-2630701750" title="02-03 11:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I&#39;ve changed the approach a bit here - instead of an action (I couldn&#39;t linked the failed job in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3080#issuecomment-2630714913" title="02-03 11:43">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>JurajSadel</b>: I&#39;ve changed the approach a bit here - instead of an action (I couldn&#39;t linked the failed job in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3080#pullrequestreview-2589666564" title="02-03 11:47">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3080#pullrequestreview-2589672526" title="02-03 11:51">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: Thank you!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3068"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Issue creation when nightly runs fail</b> #3068</a>
+              [MabezDev]
+
+              <span class="label" style="--label-r:240;--label-g:221;--label-b:116;--label-h:50;--label-s:80;--label-l:69;">CI</span>
+                
+              </p><p>It&#39;s hard to see when this goes wrong, and we should do a better job of keeping on top of it.</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3033"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Migrate PARL_IO driver to newer DMA API</b> #3033</a>
+              [Dominaezzz]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3033#pullrequestreview-2589342894" title="02-03 09:24">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b>: Thanks</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3033#discussion_r1939140840" title="02-03 10:26">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: seems like reformatting went bad</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3033#discussion_r1939141262" title="02-03 10:26">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: seems like reformatting went bad</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3033#pullrequestreview-2589664726" title="02-03 11:47">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2224"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Allow switching between AP, STA etc at runtime</b> #2224</a>
+              [timovelten]
+
+              <span class="label" style="--label-r:165;--label-g:108;--label-b:149;--label-h:316;--label-s:24;--label-l:53;">package:esp-wifi</span>
+                
+              </p><p>I would like to initialize the Wifi interface in ApSta mode and later disable the access point (and switch to Sta...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/2224#issuecomment-2630976359" title="02-03 13:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: @bjoernQ
+I think in terms of flexibility, your API perhaps goes a tad too far?
+What I don&#39;t like...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/2224#issuecomment-2631010186" title="02-03 13:29">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Thanks for taking time to look into this and for the feedback!
+Seems like this goes into a...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3084"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Migrate AES driver to DMA move API</b> #3084</a>
+              [Dominaezzz]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3084#pullrequestreview-2589174959" title="02-03 08:10">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3084#pullrequestreview-2589281234" title="02-03 09:00">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b>: Thank you</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3086"><span class="octicons" title="closed pull request, newly closed"><span class="octicon dash"></span><span class="octicon x"></span><span class="octicon closed pull"></span></span><b>`dma_tx_buffer` no longer returns an error</b> #3086</a>
+              [Dominaezzz]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3086#issuecomment-2633160915" title="02-04 08:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: IMHO we shouldn&#39;t try to fix this macro, but remove it completely.
+
+I agree - the macros served...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3086#issuecomment-2633499459" title="02-04 10:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: Can&#39;t tell what the replacement is but looks like this pr isn&#39;t the desired direction.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3034"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>I2C master: Read data does not match actually present on bus.</b> #3034</a>
+              [katyo]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:i2c</span>
+                <span class="label" style="--label-r:182;--label-g:2;--label-b:5;--label-h:359;--label-s:97;--label-l:36;">beta-blocker</span>
+                
+              </p><p>Bug description
+The data in read buffer does not match data which slave writes to the bus. For example it reads 0x83...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3034#issuecomment-2634266420" title="02-04 15:10">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: @katyo could you try the linked PR when you get the chance?</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2923"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>A time/rate solution</b> #2923</a>
+              [MabezDev]
+
+              <span class="label" style="--label-r:76;--label-g:51;--label-b:66;--label-h:323;--label-s:19;--label-l:24;">api</span>
+                <span class="label" style="--label-r:182;--label-g:2;--label-b:5;--label-h:359;--label-s:97;--label-l:36;">beta-blocker</span>
+                
+              </p><p>We currently use fugit, which has served us well, and works nicely overall. I do see a few issues with it...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3083"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Newtype fugit Rate, Instant and Duration</b> #3083</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Closes #2923
+skip-changelog because of embassy/wifi updates.</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#pullrequestreview-2587825873" title="02-03 10:40">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>MabezDev</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1937952199" title="02-03 10:40">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: We can implement it on our own Rate struct now</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1939161000" title="02-03 10:40">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I wonder if we&#39;re going with our own types we should also make Instant::now a thing instead of...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1939174753" title="02-03 10:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Instant is meaningless without the HAL, you can&#39;t create an Instant anyway. That the underlying...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1939254887" title="02-03 11:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: So I&#39;m not sure if we want to move these out of the hal, or what we would gain by doing that
+
+I...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1939257764" title="02-03 11:57">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: We can always add an embassy_time_04 feature (if #3063 goes that way) to esp-hal.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1940663201" title="02-04 07:46">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: We probably could expand this comment a bit now</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#pullrequestreview-2591994328" title="02-04 07:48">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks!
+We could consider a From&lt;core::time::Duration&gt; impl but not necessarily in this PR (it&#39;s...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#pullrequestreview-2592346876" title="02-04 10:14">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>MabezDev</b>: This LGTM, thanks for taking care of the impl @bugadani!
+The only thing left to do now is...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1940881218" title="02-04 10:14">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: So as per the parent issue, let&#39;s bikeshed this a bit.
+Imo this still looks the cleanest, and...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1940885110" title="02-04 10:16">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: +1 for mhz</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1940904145" title="02-04 10:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: mghz is just confusing, mega_hz or mega_hertz look sloppy as I think the prefixes are supposed...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#discussion_r1941591469" title="02-04 17:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: I think the guideline suggestion has resolved the concerns here for me, I suppose I should have...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#issuecomment-2633516742" title="02-04 10:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Ben-PH</b>: fugit forces the exclusive choice of u32 or u64. this creates frustrations when wanting to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#issuecomment-2633528790" title="02-04 10:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: fugit forces the exclusive choice of u32 or u64. this creates frustrations when wanting to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#issuecomment-2633531068" title="02-04 10:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Awhile ago, I ran into this issue, and it&#39;s a pain.
+
+What&#39;s your use case?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#issuecomment-2633579024" title="02-04 11:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Ben-PH</b>: Use case was ages ago, so I forget the details, but the key issues is that there were...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#pullrequestreview-2592498289" title="02-04 11:12">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>JurajSadel</b>: Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#issuecomment-2633625550" title="02-04 11:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Noted. What do you plan to do for the cases where the types chosen for the const generics cause...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3083#pullrequestreview-2593554993" title="02-04 17:22">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3075"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>esp32c6 really bad WiFi range compared to C program</b> #3075</a>
+              [jpdisco]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:165;--label-g:108;--label-b:149;--label-h:316;--label-s:24;--label-l:53;">package:esp-wifi</span>
+                
+              </p><p>Bug description
+When I make program with C in arduino editor for seeed lab xiao esp32c6 wifi works very well...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3075#issuecomment-2630958279" title="02-03 13:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: Could it be related to the problem described in #3081 ?
+@jpdisco In other words, a quick...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3075#issuecomment-2635662835" title="02-05 04:13">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jpdisco</b>: I have already set powersave to none, it only reduced latency not range problems. When I have...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3096"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>ESP32-S2: Fix creation of .rwdata_dummy section</b> #3096</a>
+              [bjoernQ]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3096#pullrequestreview-2595026187" title="02-05 08:59">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b>: Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3096#pullrequestreview-2595026894" title="02-05 08:59">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3094"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>PCNT clock may be deactivated after migration to 0.23</b> #3094</a>
+              [DamienEspitallier]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>Bug description
+0.23 has changed the clock enable algorithm to use GenericPeripheralGuard. But it does not work when...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3094#issuecomment-2633970630" title="02-04 13:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: AHH, interesting use case. Each object basically needs a guard field in them</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3097"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Fix BLE controller test</b> #3097</a>
+              [bugadani]
+
+              
+              </p><p>On the H2, the connector sometimes returns two packets, which the previous test did not expect. This PR breaks up...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3097#pullrequestreview-2595221021" title="02-05 10:15">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3097#pullrequestreview-2595233438" title="02-05 10:19">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>JurajSadel</b>: Thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3066"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Don&#39;t run CI on main</b> #3066</a>
+              [MabezDev]
+
+              <span class="label" style="--label-r:240;--label-g:221;--label-b:116;--label-h:50;--label-s:80;--label-l:69;">CI</span>
+                
+              </p><p>We already do all the merge checks in the merge queue.</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3066#issuecomment-2636367310" title="02-05 10:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jessebraham</b>: I don&#39;t think this is an issue anymore, it seems GitHub have made some changes on their end. The...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3066#issuecomment-2636413996" title="02-05 11:02">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: It&#39;s nice to not have to do anything to close an issue every once in while :D</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3054"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Add xtal frequency configuration</b> #3054</a>
+              [bugadani]
+
+              
+              </p><p>This PR adds ESP_HAL_CONFIG_XTAL_FREQUENCY - although only 32 and C2 have meaningful configurability. THe point of...</p><ul class="comments">
+                  <li class="old">
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#discussion_r1937703658" title="01-31 17:52">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>MabezDev</b>: Are we going to run into issues if someone wants to set this config but also support multiple...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#discussion_r1938902715" title="02-03 07:28">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I guess #3020 will support this scenario better</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#discussion_r1938908208" title="02-03 07:34">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: shouldn&#39;t this be unreachable!?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#discussion_r1938955424" title="02-03 08:18">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: it can&#39;t be, const eval just ends up panicking if you configure anything else</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#discussion_r1938965419" title="02-03 08:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: ah somehow missed const</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#pullrequestreview-2589235012" title="02-03 08:39">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#pullrequestreview-2595125550" title="02-05 09:38">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3054#pullrequestreview-2595296132" title="02-05 10:45">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>JurajSadel</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3098"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>HCI: don&#39;t take a critical section for each byte read</b> #3098</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3098#pullrequestreview-2595307059" title="02-05 10:50">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3098#pullrequestreview-2595324526" title="02-05 10:57">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3093"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Fix waiting for short periods</b> #3093</a>
+              [bugadani]
+
+              
+              </p><p>This PR (built on top of #3083) shortens wait times in tests (which trigger this issue), and sets the interrupt...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#issuecomment-2633526091" title="02-04 14:34">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Okay I&#39;ll have to investigate more, whether we should use level_int_en instead of the int_ena...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#discussion_r1942093130" title="02-05 00:37">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Dominaezzz</b>: Clearing the interrupt here breaks cancellation I think, you ideally want to be able to...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#discussion_r1942096229" title="02-05 00:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: Ah nvm, I don&#39;t think the cancellation semantics where ever decided on the timers.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#discussion_r1942451744" title="02-05 08:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Yeah this future isn&#39;t cancellation-safe. Neither does it have to be, either.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#discussion_r1942468870" title="02-05 08:53">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Still, I removed this clear in the last commit, where I also rework the async wait a bit.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#discussion_r1942853255" title="02-05 12:40">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: maybe we want to keep and extend the original comment (// always use level interrupt) - i.e. why...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#pullrequestreview-2595713140" title="02-05 12:59">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3093#pullrequestreview-2596037363" title="02-05 14:53">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: LGTM, thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3095"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>`Pull` doesn&#39;t support pull up and pull down at the same time</b> #3095</a>
+              [MabezDev]
+
+              <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:gpio</span>
+                <span class="label" style="--label-r:176;--label-g:43;--label-b:124;--label-h:323;--label-s:60;--label-l:42;">1.0 non-breaking</span>
+                
+              </p><p>Unsure if we should even support this but it&#39;s a real mode. The context I found for this is...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3095#issuecomment-2635018098" title="02-04 20:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: we can add this to flex, I guess, but otherwise I wouldn&#39;t try to confuse anyone in the mainline...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3095#issuecomment-2637543310" title="02-05 17:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Agreed.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3100"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Radio clock refactor</b> #3100</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>This PR removes a trait in favour of a driver struct, so that the RADIO_CLK peripheral no longer implements logic....</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3100#issuecomment-2637045762" title="02-05 14:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: How on Earth did this turn into +800 -1200 lines 😶</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3100#issuecomment-2637067009" title="02-05 14:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: I wanted to merge RadioPeripherals into Peripheral so that we don&#39;t special-case them so much,...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3100#pullrequestreview-2596047637" title="02-05 15:17">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: LGTM, I would like a bit of testing around the phy clock change, just so we don&#39;t break esp-wifi with it</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3100#discussion_r1943101810" title="02-05 15:17">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I&#39;d be interested to see if this breaks things, I&#39;m not sure we ever got to a point where we...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3100#discussion_r1943212800" title="02-05 15:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: 32 and S2 have this:
+pub(crate) unsafe extern &#34;C&#34; fn phy_common_clock_disable() {
+   ...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3100#pullrequestreview-2596424291" title="02-05 16:58">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: I did some testing and everything seems to work (also the changes are mostly &#34;mechanical&#34;)</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3102"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>esp32s3 with wifi boot loop, `BROWNOUT_RST`</b> #3102</a>
+              [kaspar030]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:251;--label-g:202;--label-b:4;--label-h:48;--label-s:96;--label-l:50;">status:needs-attention</span>
+                
+              </p><p>Bug description
+I have multiple esp32-s3 devkits that seem to reboot with BROWNOUT_RST.
+I&#39;m pretty sure they worked...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3102#issuecomment-2637693187" title="02-05 18:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Brownout reset means something&#39;s up with your devkits&#39; power supply.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3102#issuecomment-2637704896" title="02-05 18:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Brownout reset means something&#39;s up with your devkits&#39; power supply.
+
+I fell for the USB hub not...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/1909"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>I2C slave driver</b> #1909</a>
+              [okhsunrog]
+
+              <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:i2c</span>
+                
+              </p><p>Are there any plans for I2C slave driver? I only found embassy example for I2C slave for rp2040...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/1909#issuecomment-2637998108" title="02-05 20:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>hcabel</b>: I agree, +1 for i2c slave driver</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3103"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>2Mbps UART crashes on initialization</b> #3103</a>
+              [TravisThomp]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>Bug description
+Setting the baud rate to 2Mbps causes the change_baud function to overflow during...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3103#issuecomment-2638225555" title="02-05 23:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Could you try #3104?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3103#issuecomment-2639262938" title="02-06 09:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>TravisThomp</b>: No longer getting an overflow error,
+Thank  you :)</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3104"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Allow more baud rates</b> #3104</a>
+              [MabezDev]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#issuecomment-2638107057" title="02-05 21:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Cool, I didn&#39;t completely break things, time to try and fix the real issue :D.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#discussion_r1943766599" title="02-05 22:32">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bugadani</b>: 👍</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#discussion_r1943767324" title="02-05 22:33">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bugadani</b>: Could we just divide twice? I&#39;m not a fan of u64 maths</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#pullrequestreview-2597180199" title="02-05 23:02">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b>: TYVM! Let&#39;s wait for feedback, but otherwise looks good to me.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#discussion_r1944244433" title="02-06 07:43">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b>: Nitpick, I know it was already present but probably we don&#39;t need to keep this commented-out line?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#discussion_r1944276919" title="02-06 08:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: or maybe at some point (not here) we should do it - there are quite a few such delays in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3104#discussion_r1944512885" title="02-06 10:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Thanks, I reworded the comment to something more useful instead of just commented out code.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3074"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>More validation and `# Errors` entries</b> #3074</a>
+              [playfulFence]
+
+              
+              </p><p>Introduces more validation for SPI and UART, allows setting baudrate tolerance for UART config, adds more # Errors...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#pullrequestreview-2593406640" title="02-04 17:26">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>MabezDev</b>: Not sure if you&#39;re looking for review feedback now, but I guess you&#39;re gunna get it :D.
+In...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1941500279" title="02-04 17:26">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: Shouldn&#39;t we specify which variants can be returned?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1941506159" title="02-04 17:26">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I think we should probably mark this as unstable for now, but Closest seems like a good default to me.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1941594097" title="02-04 17:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: and also do the same for the other tolerance related type in the other drivers.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944234975" title="02-06 07:33">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: this comment is not accurate for the H2 - probably there is also no need to mention the limits...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944235902" title="02-06 07:34">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: no need for the leading space</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944239031" title="02-06 07:37">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: not to be resolved in this PR but I think in some cases passing zero-length buffers are no-ops...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944240164" title="02-06 07:38">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: we should tell the real limit (which is different for H2) - we already do it in other places</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944244389" title="02-06 07:42">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: maybe it&#39;s worth to deduplicate the code block (we have it three times)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944263769" title="02-06 07:58">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>jessebraham</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                   ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944259975" title="02-06 08:00">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>jessebraham</b>: There are a number of identical lines in each branch of the cfg_if! here, probably could use...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#pullrequestreview-2598280045" title="02-06 10:35">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#pullrequestreview-2598322898" title="02-06 10:57">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>SergioGasquez</b>: Some formatting nitpicks</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944515544" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                /// # Errors
+  ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944516328" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                /// # Errors.
+ ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944516682" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                    /// #...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944517177" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                    /// #...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944518518" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                /// # Errors
+  ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944518871" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                /// # Errors
+  ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944519095" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                /// # Errors.
+ ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944520913" title="02-06 10:57">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>SergioGasquez</b>: We should use a commit instead of master for the link</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944527941" title="02-06 11:01">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jessebraham</b>: Yeah linking to specific lines without a commit hash is just a recipe for future confusion</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944549518" title="02-06 11:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>playfulFence</b>: Agreed</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#pullrequestreview-2598406355" title="02-06 11:31">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>SergioGasquez</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#pullrequestreview-2598358819" title="02-06 12:07">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>MabezDev</b>: Thank you! This is looking good, most of my comments are related to the wording or layout, the...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944537857" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: Can we move this check to the validate function? It&#39;s fine to stay as a panic, but we should try...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944569197" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I think this could be simplified a bit if you wrote it more...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944629924" title="02-06 12:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Oh and please remove the period in the # Errors heading.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944573118" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: You might be able to collapse these two branches once you rebase, see the logic here:...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944747383" title="02-06 13:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>playfulFence</b>: Good catch, but I think in this specific case it will actually only add new lines because extra...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944760324" title="02-06 13:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: yeah, ignore this one I think, it&#39;s cleaner to dupe here</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944574377" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I think these can be i32 and u32?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944705471" title="02-06 13:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>playfulFence</b>: Can they? What if baudrate or actual_baud is greater than i32::MAX? Wouldn&#39;t it overflow?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944759456" title="02-06 13:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: i32::MAX is over 2 billion, our max supported baud is 5 million, even if a new chip comes out...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944762376" title="02-06 13:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: 2GHz UART wen</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944607304" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I forget if we can mark enum variants as unstable (cc: @bugadani) but as this is related to the...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944740086" title="02-06 13:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: It&#39;s impossible to mark enum variants as unstable. All we can do is cfg them away and return an...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944769130" title="02-06 14:11">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Gotcha so we can do what we do for spi dma error:...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944609011" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: Similar to my other comment, I&#39;d avoid writing the conditions in long sentences when an error...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#discussion_r1944610358" title="02-06 12:07">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I can&#39;t comment on the diff, but could you add some more tests to...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3074#pullrequestreview-2598837791" title="02-06 14:25">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: LGTM, thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2839"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Peripheral drivers should validate configuration before applying it to hardware</b> #2839</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:182;--label-g:2;--label-b:5;--label-h:359;--label-s:97;--label-l:36;">beta-blocker</span>
+                
+              </p><p>apply_config is fallible, which means two things:
+
+It can fail
+The user can ignore the failure and keep using the...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3090"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Calibration calc overflow</b> #3090</a>
+              [yuri-ncs]
+
+              
+              </p><p>Submission Checklist 📝
+
+ I have updated existing examples or added new ones (if applicable).
+ I have used cargo...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2633163387" title="02-04 08:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: nitpick but probably we should revert the Cargo.toml reformat</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2633879092" title="02-04 14:05">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>yuri-ncs</b>: Sorry, just trying to solve the problem i was having and its also my first cotribution in a OS...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2634074348" title="02-04 14:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Thanks for working on this!
+One thing I noticed is that the adc_calibaration qa-test is async...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2634096200" title="02-04 14:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>yuri-ncs</b>: i removed the async now. I was using Timer to delay and in the las minute changed for delay.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2639932771" title="02-06 14:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: HIL test gets run with every PR, qa test only gets looked at around release time or some...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2640026922" title="02-06 14:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>yuri-ncs</b>: The test conversion is feasible, but regarding the reference issue, I need to study more about...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3090#issuecomment-2640103691" title="02-06 15:13">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: The test conversion is feasible, but regarding the reference issue, I need to study more about...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3105"><span class="octicons" title="draft pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>Remove note about fixed cargo bug</b> #3105</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>rust-lang/cargo#10358 has been fixed, we probably no longer want to call it out.
+The fix will be part of 1.86, so we...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3105#issuecomment-2640179382" title="02-06 15:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Should we also remove the work around we did in esp-config?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3105#issuecomment-2640186686" title="02-06 15:43">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I was too slow .... yes should we remove it: 
+  
+    
+      esp-hal/esp-config/src/generate.rs
+ ...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3101"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Update PACs to use newly defined radio bits</b> #3101</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>This PR rewrites the regi2c_write functions of C6 and H2, by using the I2C_ANA_MST peripheral defined in the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3101#pullrequestreview-2598996498" title="02-06 15:18">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: LGTM, thanks!
+I merged esp-rs/esp-pacs#316 not sure if you need to change the pacs commit or not.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3101#pullrequestreview-2599313643" title="02-06 16:48">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Did some testing and seems to work fine</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3109"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Specifying `TransferDirection` when creating `Preparation`s in `Dma[Tx|Rx]Buffer`s feels redundant.</b> #3109</a>
+              [Dominaezzz]
+
+              <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:dma</span>
+                
+              </p><p>This is just to continue the conversation from here where we were discussing how to best to deal with the redundancy...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2313"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>ESP32S2: `dma_mem2mem` support</b> #2313</a>
+              [SergioGasquez]
+
+              <span class="label" style="--label-r:221;--label-g:5;--label-b:154;--label-h:318;--label-s:95;--label-l:44;">chip:esp32s2</span>
+                
+              </p><p>Issue created from #1524</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/2313#issuecomment-2641365081" title="02-06 23:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: esp-rs/esp-pacs#318</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3025"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>fix: ethernet frame header is 14 not 18</b> #3025</a>
+              [Easyoakland]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3025#issuecomment-2642497824" title="02-07 10:12">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I think we just size our internal buffer larger than needed and we don&#39;t even need to account...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3106"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>refactor esp-wifi to ease using external task scheduler</b> #3106</a>
+              [kaspar030]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Submission Checklist 📝
+
+ I have updated existing examples or added new ones (if applicable).
+ I have used cargo...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#discussion_r1945295042" title="02-06 19:21">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kaspar030</b>: this function was identical for riscv and xtensa. the comments are a mix. I don&#39;t know which...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#discussion_r1945301131" title="02-06 19:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Nice, this change will probably make it simpler to just throw all this out in favour of...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#issuecomment-2642353066" title="02-07 09:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Very nice! Lots of things I wanted to do for quite some time - from my side this looks already mergeable</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#discussion_r1946216288" title="02-07 09:18">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bugadani</b>: Hmm don&#39;t we have #[cfg(xtensa)] and #[cfg(riscv)] in esp-wifi?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#discussion_r1946224621" title="02-07 09:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: ah we use esp-metadata - so yes</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#discussion_r1946234653" title="02-07 09:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: I [pushed a...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#pullrequestreview-2601250648" title="02-07 09:34">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b>: Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#issuecomment-2642422335" title="02-07 09:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Should I rebase this to main?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#issuecomment-2642446660" title="02-07 09:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: No need, it will merge cleanly, just needs a +1 from someone else, ideally @bjoernQ :)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#pullrequestreview-2601288524" title="02-07 09:51">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b>: Changes LGTM, but will let Bjoern have the final say before merging. Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#pullrequestreview-2601292094" title="02-07 09:52">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3106#issuecomment-2642459723" title="02-07 09:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Thanks for the quick review!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3112"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Format PanicInfo with defmt</b> #3112</a>
+              [DBLouis]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Remove use of Display2Format to format PanicInfo. Format has been implemented on...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3112#pullrequestreview-2601050410" title="02-07 08:02">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3112#pullrequestreview-2601090384" title="02-07 08:23">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3114"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Cannot install esp-println</b> #3114</a>
+              [maelp]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>I get this error with v0.13
+error[E0412]: cannot find type `PhantomData` in this scope
+   --&gt;...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642716321" title="02-07 11:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Closed via #2979, we still haven&#39;t released esp-println yet though. Could you use the git...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642722627" title="02-07 11:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: Thanks, so you mean using a git hash?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642730445" title="02-07 11:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: I did, with the latest commit, but now I have this, any idea?
+
+error: mach-o section specifier...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642735603" title="02-07 12:01">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jessebraham</b>: Given the mention of mach-o in the error, looks like you are building for macOS and not targeting Xtensa.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642738877" title="02-07 12:02">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: Interesting, because I&#39;m doing cargo +esp build, not sure how to configure?
+Here&#39;s my...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642741519" title="02-07 12:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: The error begins this way if it helps
+   Compiling xtensa-lx-rt v0.18.0...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642742462" title="02-07 12:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jessebraham</b>: #[build]
+The build section is commented out, so the target is not being applied most likely.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642745604" title="02-07 12:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: wooops you&#39;re right, now I have an error in my code so it compiles
+it::MillisDurationU64;
+   |  ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642764246" title="02-07 12:16">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Try to pass esp_hal::time::Duration and not fugit&#39;s type. Recent change.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642770035" title="02-07 12:18">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: Thank you indeed this works... now just have to figure out why my esp32-s3 device is not...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642783362" title="02-07 12:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: Weirdly esptool.py doesn&#39;t seem to detect the device, althouh I know I was able to flash it...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3114#issuecomment-2642789700" title="02-07 12:28">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maelp</b>: Hmmm it seems it was a driver issue with the board, installing this fixes it...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/1045"><span class="octicons" title="closed issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon closed issue"></span></span><b>How to use EEPROM？</b> #1045</a>
+              [Song-aff]
+
+              
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/1045#issuecomment-2642784004" title="02-07 12:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DBLouis</b>: For persistence you can use https://github.com/esp-rs/esp-storage to write and read the flash....</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/1045#issuecomment-2642795348" title="02-07 12:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: esp-idf uses it but no-std doesn&#39;t</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3116"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Don&#39;t enable the interrupt when waiti isn&#39;t used</b> #3116</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>This probably isn&#39;t the cause of our HIL issues, but without low_power_wait the interrupt isn&#39;t bound to a handler...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3116#pullrequestreview-2601666050" title="02-07 12:57">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Makes sense</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3116#pullrequestreview-2601731885" title="02-07 13:29">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3099"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Unstabilize CPU-related functionality, merge modules</b> #3099</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Multi-core operations, as well as CPU reset are no longer stable. CPU-related operations are now contained in the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#pullrequestreview-2595558974" title="02-05 12:41">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>MabezDev</b>: Sorry to bikeshed, I feel like this would be better placed in a system or soc module.
+Which also...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#discussion_r1942795862" title="02-05 12:41">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: I suppose this (and the ROM function) should have a return type of  -&gt; !?</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#issuecomment-2636723718" title="02-05 12:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Good shout, although that system module is equally pointless IMHO Radio clocks belong to maybe...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#issuecomment-2636732516" title="02-05 12:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Good shout, although that system module is equally pointless IMHO Radio clocks belong to maybe...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#discussion_r1942889005" title="02-05 12:51">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: seems it&#39;s only used in rtc_cntl - should we move it there?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#issuecomment-2640147385" title="02-06 15:29">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: I moved everything into system, and removed the EnumIter thing that was a perma-stable-public...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#pullrequestreview-2601022082" title="02-07 08:57">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#pullrequestreview-2601814518" title="02-07 14:02">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: LGTM, just one question that I either can&#39;t tell from the diff or has some other effect I&#39;m not...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#discussion_r1946573957" title="02-07 14:02">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>MabezDev</b>: Does this need to be stable? iirc it&#39;s all internal?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#discussion_r1946582020" title="02-07 14:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: It&#39;s hidden, so does it matter?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#discussion_r1946586467" title="02-07 14:10">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Just checked - Peripheral needs to be public, because Info in e.g. UART is public, and it needs...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3099#discussion_r1946593606" title="02-07 14:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Oops, missed the doc hidden :D, thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3113"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Make the main example work with the stable HAL</b> #3113</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3113#pullrequestreview-2601978503" title="02-07 15:01">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: Thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3107"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Add auto-writeback support to DMA buffers</b> #3107</a>
+              [Dominaezzz]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3107#pullrequestreview-2600179671" title="02-06 22:31">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b>: Thanks</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3107#pullrequestreview-2601025871" title="02-07 07:50">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3108"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Fix auto writeback on CryptoDMA</b> #3108</a>
+              [Dominaezzz]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3108#pullrequestreview-2600187938" title="02-06 22:37">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bugadani</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3108#pullrequestreview-2601038476" title="02-07 07:55">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3111"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Use correct Crypto DMA interrupt</b> #3111</a>
+              [Dominaezzz]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3111#pullrequestreview-2601048935" title="02-07 08:01">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3111#pullrequestreview-2601082495" title="02-07 08:19">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2269"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>DMA move API tracking issue</b> #2269</a>
+              [bugadani]
+
+              <span class="label" style="--label-r:18;--label-g:122;--label-b:73;--label-h:151;--label-s:74;--label-l:27;">peripheral:dma</span>
+                
+              </p><p>Basics
+
+#1716
+#1719
+#1856
+#1976
+
+Peripheral support
+
+ SPI master
+ SPI slave
+ I8080 #2191
+
+#2268
+
+
+ Camera #2242
+ AES...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3058"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Implement application description for ESP-IDF image format</b> #3058</a>
+              [SergioGasquez]
+
+              <span class="label" style="--label-r:91;--label-g:108;--label-b:151;--label-h:223;--label-s:24;--label-l:47;">linker scripts</span>
+                <span class="label" style="--label-r:83;--label-g:25;--label-b:231;--label-h:256;--label-s:81;--label-l:50;">1.0-blocker</span>
+                
+              </p><p>New versions of ESP-IDF bootloader expect to have application description, see...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3058#issuecomment-2630735543" title="02-03 11:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: Adding the 1.0 blocker as we need to solve this update the bootloaders in espflash for v4?...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3058#issuecomment-2630738603" title="02-03 11:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: There&#39;s also this new guy named mmu_page_size which appears in ESP-IDF bootloaders &gt;= 5.4. I...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3058#issuecomment-2630897512" title="02-03 12:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ivmarkov</b>: Related: esp-rs/espflash#741</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3027"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Rethink WiFi API</b> #3027</a>
+              [bjoernQ]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#issuecomment-2633285153" title="02-04 09:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I don&#39;t think adding an example is interesting enough but here is the wifi_dhcp example modified...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#issuecomment-2633432106" title="02-04 10:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: I don&#39;t think adding an example is interesting enough but here is the wifi_dhcp example modified...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#issuecomment-2633538907" title="02-04 10:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: What happens when a user wants to do AP_STA mode?
+
+
+We have the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#issuecomment-2633546391" title="02-04 10:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: so we could have some intermediate &#34;device&#34; that can do some limited packet parsing to route the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#issuecomment-2639655396" title="02-06 12:13">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Maybe I was a bit too ambitious with the routing point, but I think its still worth trying to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#issuecomment-2639676792" title="02-06 12:20">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Maybe I was a bit too ambitious with the routing point, but I think its still worth trying to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944718266" title="02-06 13:23">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bugadani</b>: We should probably add a FIXME to remove this after the next rustc release, the c_char...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944725980" title="02-06 13:28">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Dominaezzz</b>: When I was reading the examples I thought this was a getter. I propose this should be called...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944735205" title="02-06 13:34">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: If we want any sort of stability in esp-wifi, this would need to be create_smoltcp_&lt;version&gt;_interface.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944733231" title="02-06 13:32">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Dominaezzz</b>: My only note here with the API is this would&#39;ve been nice as a one liner like so.
+let (mut...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944738380" title="02-06 13:35">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: I agree that we are probably integrating smoltcp a bit more tightly than ideal. Since it&#39;s at...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944853199" title="02-06 14:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I decided to remove that completely - for now users can do it themselves and mid-term/long-term...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#pullrequestreview-2598675327" title="02-06 13:34">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bugadani</b>: Well this PR is borderline unreviewable on the github diff page, but here are a few comments.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944725183" title="02-06 13:34">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>bugadani</b>: This can be a fetch_or.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944843800" title="02-06 14:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: Or a swap</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944857446" title="02-06 14:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: using fetch_or but honestly that sniffer and esp-now should become (very) special interfaces...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944727879" title="02-06 13:34">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>bugadani</b>: Meaningless nitpick of the day, but this cna be so much nicer if you collected these into a...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1944851231" title="02-06 14:43">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: I&#39;ll 2nd that and suggest using map and fold as well.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946698112" title="02-07 15:18">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>AnthonyGrondin</b>: Side note; Now that Generics have been removed, can this now...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946742184" title="02-07 15:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: At that point this can also turn into something like:
+#[embassy_executor::task(pool_size =...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946755872" title="02-07 15:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: I&#39;m not sure if I&#39;m meant to be playing a game of spot the difference here, but aren&#39;t they the same? :D</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946757751" title="02-07 15:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Apparently I&#39;m just blind and I just saw the diff, but I actually made a syntax error so there...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946759870" title="02-07 15:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: but I actually made a syntax error so there is a difference 🙈
+
+Aww, that means I lost :(</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946853097" title="02-07 16:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: What&#39;s the difference then? 😅</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3027#discussion_r1946865782" title="02-07 16:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Missing closing bracket on task pool (yes it still took me another good 5 mins to find it 🤣)</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2479"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Add linker scripts (and any additional required code) to support `mcuboot`</b> #2479</a>
+              [jessebraham]
+
+              <span class="label" style="--label-r:91;--label-g:108;--label-b:151;--label-h:223;--label-s:24;--label-l:47;">linker scripts</span>
+                <span class="label" style="--label-r:176;--label-g:43;--label-b:124;--label-h:323;--label-s:60;--label-l:42;">1.0 non-breaking</span>
+                
+              </p><p>Build environment for the bootloader can be found here:
+https://github.com/jessebraham/espressif-mcuboot-docker</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3115"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>esp-wifi: support using an external scheduler</b> #3115</a>
+              [kaspar030]
+
+              
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2642788658" title="02-07 12:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I guess this one deserves a changelog entry
+
+This is using &#34;extern&#34; functions, which...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2642793692" title="02-07 12:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: You could go the embassy-time-driver route, add a Scheduler trait and a macro that ties the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2642832120" title="02-07 12:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: You could go the embassy-time-driver route, add a Scheduler trait and a macro that ties the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2642837082" title="02-07 12:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: That&#39;s probably a bit more complicated than what I have in mind :D</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2642850311" title="02-07 13:01">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: That&#39;s probably a bit more complicated than what I have in mind :D
+
+That&#39;s two functions, here...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2642993924" title="02-07 13:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: That&#39;s two functions, here we have a whopping seven 🙂. But I guess, manual labor it is for...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946551873" title="02-07 13:48">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kaspar030</b>: This needs to be public so preempt::Scheduler is available.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946567204" title="02-07 13:57">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: At this point this should probably be always on &amp; public, and our internal implementation can...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946608856" title="02-07 14:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Implemented in c4024321.
+(It does feel a bit odd to go through the opaque raw pointers within...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946673205" title="02-07 15:02">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: A bit, but maybe this will keep us honest (i.e. we probably won&#39;t break the third party...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946728296" title="02-07 15:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: We probably (read: I want to :D) move the scheduler bits out of here anyways, so I think keeping...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643001124" title="02-07 13:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Updated Ariel diff is here, it looks cleaner indeed.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946732038" title="02-07 15:41">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kaspar030</b>: CI complained before that there were docs on a private item. I set this to ignore, as I don&#39;t...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946737748" title="02-07 15:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: This should be an inner doc comment (//!), right now rustdoc thinks you documented the c_void import</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946732973" title="02-07 15:41">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>MabezDev</b>: Would be nice to remove this from the trait some how, but I don&#39;t think we can because the...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946759679" title="02-07 15:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: I feel the same. Maybe we could just keep it out, and document that a certain tick should be set...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946776928" title="02-07 16:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: I feel the same. Maybe we could just keep it out, and document that a certain tick should be set...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946819292" title="02-07 16:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: ok, that would probably require splitting the init function:
+// old
+esp_wifi::init(timer, rng,...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946831071" title="02-07 16:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: We can probably make esp-wifi take the scheduler as an init argument, that way we don&#39;t have to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946847351" title="02-07 16:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Whilst the scheduler here is still built in, we can just call the setup function somewhere in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1946863613" title="02-07 16:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Sorry I was referencing @bugadani with
+
+You still need something to signal that the scheduler...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#pullrequestreview-2602423200" title="02-07 17:58">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: This turned out really nice! Thanks for working on this!
+LGTM with CI green.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643680201" title="02-07 18:20">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Linting esp-wifi fails now b/c timer is unused. Does linting run w/o default-features?
+I&#39;m...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643697293" title="02-07 18:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Looks like that. You can add the feature a few lines above.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643708106" title="02-07 18:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Looks like that. You can add the feature a few lines above.
+
+thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643780919" title="02-07 19:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: Those HIL tests seem to only fail on riscv. Hm.
+It seems the hil tests also run without default...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643783759" title="02-07 19:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: It seems the hil tests also run without default features:...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#issuecomment-2643801541" title="02-07 19:13">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: Huh, those look like legit failures.
+panicked at...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1947062240" title="02-07 19:20">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>MabezDev</b>: I think we need to setup the timer before enabling the scheduler, that should fix the errors?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3115#discussion_r1947125694" title="02-07 20:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kaspar030</b>: That does indeed seem to fix the error.
+I don&#39;t understand why, and it seem dangerous. The timer...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3118"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Expose CopyDmaChannel</b> #3118</a>
+              [Dominaezzz]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>Thank you for your contribution!
+We appreciate the time and effort you&#39;ve put into this pull request.
+To help us...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3117"><span class="octicons" title="draft pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>DO NOT MERGE: polishing experiments</b> #3117</a>
+              [MabezDev]
+
+              <span class="label" style="--label-r:222;--label-g:249;--label-b:29;--label-h:67;--label-s:94;--label-l:54;">skip-changelog</span>
+                
+              </p><p>I suggest bulding and viewing the docs locally, then reviewing this commit by commit. The intention is not to merge...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3117#issuecomment-2645641708" title="02-08 13:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: when reshuffling the impl blocks for nicer docs we should also merge them to make things not...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/pull/3117#issuecomment-2645657674" title="02-08 13:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I agree the _bytes suffix is just unnecessary noise 👍</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2984"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>ESP32-C6: Using an L2CAP MTU &lt; 255 with BLE causes a runtime error</b> #2984</a>
+              [lure23]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:165;--label-g:108;--label-b:149;--label-h:316;--label-s:24;--label-l:53;">package:esp-wifi</span>
+                
+              </p><p>Bug description
+In the trouble examples, MTU values of 128 and 251 are being used. When such examples are being run...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/2984#issuecomment-2646331498" title="02-09 14:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>lure23</b>: According to this on Matrix, also ESP32-S3 is affected.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/3120"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>`esp-println` logs are too spacy</b> #3120</a>
+              [lure23]
+
+              
+              </p><p>If I log using esp-println and esp-flash on the command line, there seem to be extra newlines between each logged...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3120#issuecomment-2646438388" title="02-09 17:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: What OS are you doing espflash on?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3120#issuecomment-2646439352" title="02-09 17:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>lure23</b>: What OS are you doing espflash on?
+
+It&#39;s an Ubuntu Linux VM. espflash 3.3.0</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3120#issuecomment-2646440197" title="02-09 18:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bugadani</b>: https://github.com/lure23/espflash-vs-probe-rs/blob/c5a8251c4377ed86637c91ebf160aa650ef16521/exam...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/3120#issuecomment-2646441032" title="02-09 18:02">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>lure23</b>: https://github.com/lure23/espflash-vs-probe-rs/blob/c5a8251c4377ed86637c91ebf160aa650ef16521/exam...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/issues/2863"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>SPI DMA PSRAM QuadSPI  half_duplex_write() doesn&#39;t resolve</b> #2863</a>
+              [i404788]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>Bug description
+Exact cause in not clear to me, but attempting to send a larger buffer with SPI DMA using PSRAM...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-hal/issues/2863#issuecomment-2646559385" title="02-09 19:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Dominaezzz</b>: after half_duplex it doesn&#39;t seem possible to go back to full-duplex mode.
+
+I&#39;m curious whether...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-hal/pull/3121"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Make wifi_embassy_access_point_with_sta listen on both network addresses</b> #3121</a>
+              [alsuren]
+
+              
+              </p><p>Submission Checklist 📝
+
+ I have updated existing examples or added new ones (if applicable).
+ I have used cargo...</p></li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2025-02-10 01:43 by
+  <a href="https://pypi.org/project/dinghy/0.13.1">
+    dinghy
+    <span class="dinghy_version">0.13.1</span></a>.
+</p>

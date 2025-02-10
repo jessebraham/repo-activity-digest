@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<head>
+  <title>Activity since 2025-02-03</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .old > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  </style>
+<body>
+
+<h1>Activity since 2025-02-03</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/esp-rs/esp-generate">esp-rs/esp-generate</a></span>
+      repo issues and pull requests
+      </p>
+      
+        <ul class="entries">
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/89"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Make sure we reference the right versions of crates, Rust and tools (besides Cargo.toml)</b> #89</a>
+              [bjoernQ]
+
+              
+              </p><p>We have a couple of places where we reference versions
+
+MSRV in the (not merged yet) tools version check
+That hint...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/86"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon wontdo issue"></span></span><b>Consider setting the MSRV toolchain in rust-toolchain.toml</b> #86</a>
+              [MabezDev]
+
+              
+              </p><p>We could one step further in the rust-toolchain.toml by doing something like this:
+[toolchain]
+channel    =...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/issues/86#issuecomment-2633636520" title="02-04 11:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: because stable doesn&#39;t download the latest stable toolchain, it just uses the stable toolchain...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/issues/86#issuecomment-2633651156" title="02-04 11:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: At least #88 would have shown you a red flag ... errr a red cross there.
+The one thing I don&#39;t...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/issues/86#issuecomment-2633660153" title="02-04 11:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: Yeah to be fair, #88 is better than this solution. Will close this.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/pull/90"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Update default probe-rs args</b> #90</a>
+              [SergioGasquez]
+
+              
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/90#discussion_r1941079491" title="02-04 12:31">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>SergioGasquez</b>: Added the chip argument as an extra check if users try to flash the wrong target as we do with probe-rs</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/90#discussion_r1941109118" title="02-04 12:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: oh that&#39;s nice - didn&#39;t even know this is possible 🙈</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/90#pullrequestreview-2592740783" title="02-04 12:52">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: Thanks! This is much better now</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/85"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>probe-rs: consider better default params</b> #85</a>
+              [MabezDev]
+
+              
+              </p><p>I would consider --always-print-stacktrace a must, it prints a stack trace when you Ctrl+C the terminal.
+Other...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/pull/88"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Check rustc+cargo, espflash, probe-rs</b> #88</a>
+              [bjoernQ]
+
+              
+              </p><p>After generation this will show s.th. like this
+
+It&#39;s just to hint the user in case of any problems - they can still...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#issuecomment-2633462677" title="02-04 10:19">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Not sure this needs a changelog entry?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940898250" title="02-04 10:25">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>MabezDev</b>: How do we make sure we keep these up to date?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940902410" title="02-04 10:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>SergioGasquez</b>: We could query gh for the latest version. We could copy most of the code fromespup.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940907923" title="02-04 10:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: we already have a few places we need to keep in sync - probably s.th. we need a general solution for 👍</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940962176" title="02-04 11:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I created #89 to not forget about this</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940904415" title="02-04 10:27">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>SergioGasquez</b>: Should we check both probe-rs and espflash regardless of the option the user selected?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940911026" title="02-04 10:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: I thought about that before but it&#39;s just for the user&#39;s information - e.g. I usually use...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940912063" title="02-04 10:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: but maybe showing a red cross here might make people feel uncomfortable - even if they won&#39;t...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#discussion_r1940942963" title="02-04 10:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>SergioGasquez</b>: We can give it a try and if we see users are confused about this, change it in the futrure</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#issuecomment-2633546665" title="02-04 10:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>SergioGasquez</b>: Not sure this needs a changelog entry?
+
+Imho, its worth an entry, its a new feature that we added</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#pullrequestreview-2592507000" title="02-04 11:16">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>SergioGasquez</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#pullrequestreview-2592840632" title="02-04 13:26">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>MabezDev</b>: Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/88#issuecomment-2633925492" title="02-04 13:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Not sure this needs a changelog entry?
+
+Imho, its worth an entry, its a new feature that we...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/63"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Error: Could not execute process `espflash flash --monitor ..` No such file or directory</b> #63</a>
+              [3210jr]
+
+              
+              </p><p>For a fresh new project, created with esp-generate --chip esp32s3 hello-esp.
+Building with cargo build has no...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/91"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Generate a stable project</b> #91</a>
+              [MabezDev]
+
+              
+              </p><p>We should offer the template to use only stable crates and opt into the ancillary unstable ones.
+Crates like...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/51"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Should we include some very common crates as dependencies by default?</b> #51</a>
+              [bjoernQ]
+
+              
+              </p><p>While not needed to build the generated code some crates are very common to use - maybe it would be convenient to...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/issues/51#issuecomment-2634432568" title="02-04 16:10">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>MabezDev</b>: I think we want to add the deps that are needed for the template as it means we&#39;ll have to keep...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/issues/92"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Rename the template to `main.rs` regardless of the template selection.</b> #92</a>
+              [MabezDev]
+
+              
+              </p><p>I thought I filed this already, but imo we should rename async_main.rs to just main.rs when generating the project.</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/pull/93"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Rename async_main to main</b> #93</a>
+              [SergioGasquez]
+
+              
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/93#pullrequestreview-2594972188" title="02-05 08:36">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b>: Thanks!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/93#discussion_r1942465408" title="02-05 08:50">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>bjoernQ</b>: This will work fine but I would prefer some template command like //FILENAME src/main.rs  (or...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/93#discussion_r1942466494" title="02-05 08:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: But I&#39;m also fine with doing it like it&#39;s done here and have an issue to rethink the approach</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/93#pullrequestreview-2596342363" title="02-05 16:28">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>bjoernQ</b>: LGTM</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/pull/94"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Make linker errors more helpful</b> #94</a>
+              [bjoernQ]
+
+              
+              </p><p>I stumbled upon this &#34;by accident&#34; but thought it might be a good idea - but maybe I&#39;m just a little bit too excited...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/94#discussion_r1942806972" title="02-05 12:31">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>jessebraham</b>: Good name 😁</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/94#pullrequestreview-2596055111" title="02-05 14:59">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>SergioGasquez</b>: I think its a good thing to have! In the future this could point to some documentation in the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/94#issuecomment-2642374313" title="02-07 09:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>bjoernQ</b>: Another situation this can be quite helpful with (in future) is when using esp-wifi with a...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/esp-rs/esp-generate/pull/94#pullrequestreview-2601235827" title="02-07 09:28">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jessebraham</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/esp-rs/esp-generate/pull/95"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Moar options</b> #95</a>
+              [bugadani]
+
+              
+              </p><p>This PR adds support for more rtt backends, panic handlers, etc, hoping to be able to use rtt-target eventually. The...</p></li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2025-02-10 01:43 by
+  <a href="https://pypi.org/project/dinghy/0.13.1">
+    dinghy
+    <span class="dinghy_version">0.13.1</span></a>.
+</p>
